@@ -724,8 +724,7 @@ var Controller = ( function(w) {'use strict';
 				var avoidUnpavedRoads = prefs[1][2];
 				var avoidFerry = prefs[1][3];
 				var avoidAreas = map.getAvoidAreas();
-				
-				
+
 				// check whether truck button is active and send extendedRoutePreferences, otherwise don't 
 				if(prefs[3] == 'truck') {
 					var extendedRoutePreferences = prefs[2];
@@ -750,6 +749,7 @@ var Controller = ( function(w) {'use strict';
 				// 	}
 				// }, SERVICE_TIMEOUT_INTERVAL);
 			} else {
+
 				//internal
 				route.routePresent = false;
 				ui.setRouteIsPresent(false);
@@ -883,14 +883,20 @@ var Controller = ( function(w) {'use strict';
 				var dist = atts.distance;
 				
 				var prefs = ui.getRoutePreferences();
-				var routePref = prefs[0];
+				
+				//aas setting route type
+				var aasRoutePref = prefs[0];
+				//aas setting isochrone method
+				var aasMethod = null;// edit variable here
+				//aas setting intervall in meters
+				var aasIntervall = null;// edit variable here
 				
 				ui.showAccessibilityError(false);
 				ui.showSearchingAtAccessibility(true);
 
 				map.eraseAccessibilityFeatures();
 
-				analyse.analyze(pos, routePref, dist, accessibilitySuccessCallback, accessibilityFailureCallback);
+				analyse.analyze(pos, dist, aasRoutePref, aasMethod, aasIntervall, accessibilitySuccessCallback, accessibilityFailureCallback);
 			} else {
 				//no position, no analyse!
 				ui.showAccessibilityError(true);
@@ -946,17 +952,24 @@ var Controller = ( function(w) {'use strict';
 		 * extracts route information and displays the track in a new window formatted as GPX
 		 */
 		function handleExportRoute() {
+
 			ui.showExportRouteError(false);
 
+			var exportGPXElement = document.getElementById('export-gpx');
+
 			var routeString = route.routeString;
+			
 			if (routeString) {
-				//writing String to File seems not possible. We open a window with the content instead.
-				w = window.open('about:blank', '_blank', 'height=300,width=400');
-				w.document.write('<xmp>' + routeString + '</xmp>');
+				// Create Base64 Object
+				var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9\+\/\=]/g,"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace(/\r\n/g,"\n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}}
+
+				var newRouteString = Base64.encode(routeString);
+				exportGPXElement.href = 'data:text/gpx+xml;base64,' + newRouteString;
 			} else {
 				//error, route does not exist. Nothing can be exported
 				ui.showExportRouteError(true);
 			}
+			
 		}
 
 		/**
@@ -1240,6 +1253,7 @@ var Controller = ( function(w) {'use strict';
 		 * apply GET variables, read cookies or apply standard values to initialize the ORS page
 		 */
 		function initializeOrs() {
+
 			//apply GET variables and/or cookies and set the user's language,...
 			var getVars = preferences.loadPreferencesOnStartup();
 
@@ -1250,7 +1264,6 @@ var Controller = ( function(w) {'use strict';
 			var routeOpt = getVars[preferences.getPrefName(preferences.routeOptionsIdx)];
 			var motorways = getVars[preferences.getPrefName(preferences.avoidHighwayIdx)];
 			var tollways = getVars[preferences.getPrefName(preferences.avoidTollwayIdx)];
-
 			var unpaved = getVars[preferences.getPrefName(preferences.avoidUnpavedIdx)];
 			var ferry = getVars[preferences.getPrefName(preferences.avoidFerryIdx)];
 			var avoidAreas = getVars[preferences.getPrefName(preferences.avoidAreasIdx)];
@@ -1321,10 +1334,10 @@ var Controller = ( function(w) {'use strict';
 			slopedCurb = wheelParameters[2];
 			ui.setWheelParameters(surface, incline, slopedCurb);
 			
-			if (routeOpt == 'Wheelchair') {
+			// if (routeOpt == 'Wheelchair') {
 				// $("#routeOptions").removeClass('collapsed');
 				// $("#routeOptions").parent().get(0).querySelector('.collapsibleBody').show();
-			}
+			// }
 
 
 			//var avoidables = preferences.loadAvoidables(motorways, tollways, unpaved, ferry);

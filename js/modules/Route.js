@@ -17,11 +17,12 @@ var Route = ( function(w) {"use strict";
 		 * @param routePref: route preference, e.g. Fastest
 		 * @param avoidMotorways: flag set to true if motorways should be avoided in the route; else: false
 		 * @param avoidTollways: flag set to true if tollways should be avoided in the route; else: false
+		 * @param avoidunpavedRoads: flag set to true if unpaved roads should be avoided in the route; else: false
+		 * @param avoidFerry: flag set to true if ferrys should be avoided in the route; else: false
 		 * @param avoidAreas: array of avoid areas represented by OL.Geometry.Polygons
 		 */
 		function calculate(routePoints, successCallback, failureCallback, language, routePref,extendedRoutePreferences, avoidMotorways, avoidTollways,avoidunpavedRoads,avoidFerry, avoidAreas) {
 
-			console.log(extendedRoutePreferences)
 			var writer = new XMLWriter('UTF-8', '1.0');
 			writer.writeStartDocument();
 			//<xls:XLS>
@@ -50,7 +51,7 @@ var Route = ( function(w) {"use strict";
 			//<xls:RoutePreference />
 			writer.writeElementString('xls:RoutePreference', routePref || 'Fastest');
 			
-						
+
 			if (extendedRoutePreferences != null ) {
 				//<xls:ExtendedRoutePreference>
 				writer.writeStartElement('xls:ExtendedRoutePreference');
@@ -106,7 +107,7 @@ var Route = ( function(w) {"use strict";
 				//</xls:ExtendedRoutePreference>
 				writer.writeEndElement();
 			}
-			
+
 			//<xls:WayPointList>
 			writer.writeStartElement('xls:WayPointList');
 			for (var i = 0; i < routePoints.length; i++) {

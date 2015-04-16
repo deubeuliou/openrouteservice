@@ -6,7 +6,6 @@ var AccessibilityAnalysis = ( function(w) {"use strict";
 		function AccessibilityAnalysis() {
 
 		}
-
 		/**
 		 * builds and sends the service request
 		 * @param {Object} position: OL LonLat or Point representing the reference point
@@ -40,12 +39,17 @@ var AccessibilityAnalysis = ( function(w) {"use strict";
 			writer.writeStartElement('aas:Time');
 			writer.writeAttributeString('Duration', 'PT0H' + distanceInMinutes + 'M00S');
 			writer.writeEndElement();
-			//<aas:RoutePreference>
-			// writer.writeStartElement('aas:RoutePreference');
-			// writer.writeString('Wheelchair');
-			// </aas:RoutePreference>
-			// writer.writeEndElement();
 			//</aas:AccessibilityPreference
+			writer.writeStartElement('aas:AccessibilitySettings');
+			//</aas:AccessibilitySettings
+			writer.writeElementString('aas:RoutePreference', aasRoutePref || 'Fastest');
+			//<aas:RoutePreference>
+			writer.writeElementString('aas:Method', aasMethod || 'Default');
+			//<aas:Method>
+			writer.writeElementString('aas:Interval', aasIntervall || '10');
+			//<aas:Intervall>
+            writer.writeEndElement();                           
+			//</aas:AccessibilitySettings>
 			writer.writeEndElement();
 			//<aas:LocationPoint>
 			writer.writeStartElement('aas:LocationPoint');
