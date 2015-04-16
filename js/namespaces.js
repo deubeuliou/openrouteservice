@@ -55,6 +55,6 @@ namespaces.layerMapSurfer = 'http://korona.geog.uni-heidelberg.de/tiles/roads/x=
 //url to hillshade overlay
 namespaces.layerHs = 'http://129.206.228.72/cached/hillshade?';
 //urls to TMC overlay
-namespaces.overlayTmc = 'http://koenigstuhl.geog.uni-heidelberg.de/tmc/wms';
-namespaces.overlayTmcLines = 'http://openls.geog.uni-heidelberg.de/geoserver/wms';
+namespaces.overlayTmc = '';
+namespaces.overlayTmcLines = '';
 
