@@ -37,20 +37,29 @@ list = {
 		'car': ['Fastest', 'Shortest'],
 		'bicycle': ['Bicycle', 'BicycleSafety', 'BicycleRoute', 'BicycleMTB', 'BicycleRacer'],
 		'pedestrian': ['Pedestrian'],
+		'car': ['Fastest', 'Shortest'],
 		'wheelchair': ['Wheelchair']
 	}),
 	
-	routeAvoidables : ['Highway', 'Tollway'],
+	routeAvoidables : ['Highway', 'Tollway', 'Unpavedroads', 'Ferry'],
+
+	truckParams : ['value_length_slide', 'value_height_slide', 'value_weigth_slide',, 'value_width_slide'],
 	
 	routePreferencesImages: new Hash({
 		'car': ['img/picto-car.png', 'img/picto-car-high.png'],
 		'bicycle': ['img/picto-bike.png', 'img/picto-bike-high.png'],
 		'pedestrian' : ['img/picto-dude.png', 'img/picto-dude-high.png'],
+		'truck' : ['img/picto-truck.png', 'img/picto-truck-high.png'],
 		'wheelchair' : ['img/picto-wheelchair.png', 'img/picto-wheelchair-high.png']
 	}),
 	
 	//please make sure that each category contains at least one element. all names in the hash have to be unique.
 	wheelchairParameters: new Hash({
+		/*
+		'Surface': ['paved', 'asphalt', 'concrete', 'paving_stones', 'concrete:plates', 'cobblestone:flattened', 'concrete:lanes',
+		            'cobblestone', 'unpaved', 'fine_gravel', 'compacted', 'metal', 'ice', 'grass_paver', 'sand', 'dirt', 
+		            'earth', 'grass', 'gravel', 'ground', 'mud', 'pebblestone', 'salt', 'snow', 'wood', 'woodchips'],
+		*/
 		'Surface': ['concrete', 'cobblestone:flattened', 'cobblestone', 'compacted', 'any'],
 		'Smoothness': ['excellent', 'good', 'intermediate', 'bad', 'any'],
 		'Tracktype': ['grade1', 'grade2', 'grade3', 'grade4', 'any'],

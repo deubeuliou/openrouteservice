@@ -40,6 +40,11 @@ var AccessibilityAnalysis = ( function(w) {"use strict";
 			writer.writeStartElement('aas:Time');
 			writer.writeAttributeString('Duration', 'PT0H' + distanceInMinutes + 'M00S');
 			writer.writeEndElement();
+			//<aas:RoutePreference>
+			// writer.writeStartElement('aas:RoutePreference');
+			// writer.writeString('Wheelchair');
+			// </aas:RoutePreference>
+			// writer.writeEndElement();
 			//</aas:AccessibilityPreference
 			writer.writeEndElement();
 			//<aas:LocationPoint>
