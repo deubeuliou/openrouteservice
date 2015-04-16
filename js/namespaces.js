@@ -36,17 +36,13 @@ namespaces.schemata = {
  * if you want to become an active ORS code contributor please contact us: openrouteserviceATgeog.uni-heidelberg.de
  */
 namespaces.services = {
-		
-	// see latest ORS API documentation http://wiki.openstreetmap.org/wiki/OpenRouteService
-	geocoding : 'http://openls.geog.uni-heidelberg.de/testing2015/geocoding', //for address search requests
-	// routing: 'http://openls.geog.uni-heidelberg.de/osm/routing-test',
-	routing : 'http://localhost:8082/openrouteservice-0.0.1-SNAPSHOT/determineroute', //for routing requests
-	// routing : 'http://openls.geog.uni-heidelberg.de/testing2015/routing', //for routing requests
-	directory : 'http://openls.geog.uni-heidelberg.de/testing2015/directory', //for POI search requests
-	analyse : 'http://openls.geog.uni-heidelberg.de/testing2015/analysis',
-	// analyse : 'http://localhost:8082/openrouteservice-0.0.1-SNAPSHOT/analysis',
-	wps : '' //for calculation of polygon around route for POI search
-	//profile: '' 			//for height profile of route
+		// see latest ORS API documentation http://wiki.openstreetmap.org/wiki/OpenRouteService
+		geocoding : 'http://openls.geog.uni-heidelberg.de/testing2015/geocoding', //for address search requests
+		routing : 'http://openls.geog.uni-heidelberg.de/testing2015/routing', //for routing requests
+		directory : 'http://openls.geog.uni-heidelberg.de/testing2015/directory', //for POI search requests
+		analyse : 'http://openls.geog.uni-heidelberg.de/testing2015/analysis',
+		wps : '' //for calculation of polygon around route for POI search
+		//profile: '' 			//for height profile of route
 };
 
 /**
