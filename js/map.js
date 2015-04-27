@@ -184,8 +184,8 @@ var Map = ( function() {"use strict";
 
 
 			//nepal layer damaged buildings
-			var tiled = new OpenLayers.Layer.WMS(
-                    "nepal:buildings_nepal_damaged - Tiled", "http://129.206.228.92:8080/geoserver/nepal/wms",
+			var tiled_nepal_buildings = new OpenLayers.Layer.WMS(
+                    "Damaged Buildings Nepal", "http://129.206.228.92:8080/geoserver/nepal/wms",
                     {
                         LAYERS: 'nepal:buildings_nepal_damaged',
                         STYLES: '',
@@ -202,9 +202,40 @@ var Map = ( function() {"use strict";
                     } 
                 );
             
-               
+             // setup tiled layer
+             var tiled_nepal_roads = new OpenLayers.Layer.WMS(
+                    "Damaged Roads Nepal", "http://129.206.228.92:8080/geoserver/haiyan/wms",
+                    {
+                        LAYERS: 'haiyan:roads_ors_nepal_impassible',
+                        STYLES: '',
+                        format: 'image/png',
+                        tiled: true,
+                        transparent: "true",
+                        tilesOrigin : this.theMap.maxExtent.left + ',' + this.theMap.maxExtent.bottom
+                    },
+                    {
+                        buffer: 0,
+                        displayOutsideMaxExtent: true,
+                        isBaseLayer: false,
+                        yx : {'EPSG:3857' : false}
+                    } 
+                );
+            
+
+			 this.theMap.addLayers([
+              make_layer("http://overpass-api.de/api/interpreter?data=[timeout:1];node[amenity=hospital](bbox);out+skel;(way[amenity=hospital](bbox);node(w););out+skel;", "hospitals"),
+              make_layer("http://overpass-api.de/api/interpreter?data=[timeout:1];node[amenity=water_point](bbox);out+skel;(way[amenity=water_point](bbox);node(w););out+skel;", "water points"),
+              make_layer("http://overpass-api.de/api/interpreter?data=[timeout:1];node[amenity=drinking_water](bbox);out+skel;(way[amenity=drinking_water](bbox);node(w););out+skel;", "drinking water"),
+              make_layer("http://overpass-api.de/api/interpreter?data=[timeout:1];node[amenity=clinic](bbox);out+skel;(way[amenity=clinic](bbox);node(w););out+skel;", "clinic"),
+              make_layer("http://overpass-api.de/api/interpreter?data=[timeout:1];node[amenity=pharmacy](bbox);out+skel;(way[amenity=pharmacy](bbox);node(w););out+skel;", "pharmacy"),
+              make_layer("http://overpass-api.de/api/interpreter?data=[timeout:1];node[amenity=community_centre](bbox);out+skel;(way[ amenity=community_centre](bbox);node(w););out+skel;", "community centers"),
+              make_layer("http://overpass-api.de/api/interpreter?data=[timeout:1];node[amenity=fire_station](bbox);out+skel;(way[amenity=fire_station]](bbox);node(w););out+skel;", "fire stations"),
+              make_layer("http://overpass-api.de/api/interpreter?data=[timeout:1];node[amenity=rescue_station](bbox);out+skel;(way[amenity=rescue_station]](bbox);node(w););out+skel;", "rescue stations"),
+              make_layer("http://overpass-api.de/api/interpreter?data=[timeout:1];node[amenity=telephone](bbox);out+skel;(way[amenity=telephone]](bbox);node(w););out+skel;", "telephones"),
+          	]);
+          		   
         
-            this.theMap.addLayers([tiled]);
+            this.theMap.addLayers([tiled_nepal_buildings,tiled_nepal_roads]);
 
 
 

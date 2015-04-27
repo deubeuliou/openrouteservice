@@ -53,7 +53,7 @@ list = {
 		'car': ['img/picto-car.png', 'img/picto-car-high.png'],
 		'bicycle': ['img/picto-bike.png', 'img/picto-bike-high.png'],
 		'pedestrian' : ['img/picto-dude.png', 'img/picto-dude-high.png'],
-		'truck' : ['img/picto-truck.png', 'img/picto-truck-high.png'],
+		'truck' : ['img/picto-sos.png', 'img/picto-sos-high.png'],
 		'wheelchair' : ['img/picto-wheelchair.png', 'img/picto-wheelchair-high.png']
 	}),
 	
