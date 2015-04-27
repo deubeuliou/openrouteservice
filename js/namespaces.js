@@ -36,12 +36,10 @@ namespaces.schemata = {
  */
 namespaces.services = {
 	// see latest ORS API documentation http://wiki.openstreetmap.org/wiki/OpenRouteService
-	geocoding : 'http://openls.geog.uni-heidelberg.de/testing2015/geocoding', //for address search requests
-	routing : 'http://openls.geog.uni-heidelberg.de/testing2015/routing', //for routing requests
-	//routing: 'http://openls.geog.uni-heidelberg.de/osm/routing-test',
+	geocoding : 'http://openls.geog.uni-heidelberg.de/disaster-nepal/geocoding', //for address search requests
+	routing : 'http://openls.geog.uni-heidelberg.de/disaster-nepal/routing', //for routing requests
 	directory : 'http://openls.geog.uni-heidelberg.de/testing2015/directory', //for POI search requests
-	analyse : 'http://openls.geog.uni-heidelberg.de/testing2015/analysis',
-	nepalBuildings: 'http://129.206.228.92:8080/geoserver/nepal/wms?service=WMS&version=1.1.0&request=GetMap&layers=nepal:buildings_nepal_damaged&styles=&bbox=-97.0896744,-43.5290079,172.6203699,58.0931779&width=875&height=330&srs=EPSG:4326&format=application/openlayers',
+	analyse : 'http://openls.geog.uni-heidelberg.de/disaster-nepal/analysis',
 	wps : '' //for calculation of polygon around route for POI search
 	//profile: '' 			//for height profile of route
 };
