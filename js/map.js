@@ -221,6 +221,7 @@ var Map = ( function() {"use strict";
                     } 
                 );
             
+            this.theMap.addLayers([tiled_nepal_buildings,tiled_nepal_roads]);
 
 			 this.theMap.addLayers([
               make_layer("http://overpass-api.de/api/interpreter?data=[timeout:1];node[amenity=hospital](bbox);out+skel;(way[amenity=hospital](bbox);node(w););out+skel;", "hospitals"),
@@ -235,7 +236,6 @@ var Map = ( function() {"use strict";
           	]);
           		   
         
-            this.theMap.addLayers([tiled_nepal_buildings,tiled_nepal_roads]);
 
 
 
