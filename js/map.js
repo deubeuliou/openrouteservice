@@ -127,8 +127,12 @@ var Map = ( function() {"use strict";
 				displayProjection : new OpenLayers.Projection('EPSG:4326'),
 				theme : "lib/OpenLayersTheme.css",
 				maxExtent: new OpenLayers.Bounds(-20037508.34, -20037508.34, 20037508.34, 20037508.34),
-				restrictedExtent: new OpenLayers.Bounds(-20037508.34, -20037508.34, 20037508.34, 20037508.34)
+				restrictedExtent: new OpenLayers.Bounds(-20037508.34, -20037508.34, 20037508.34, 20037508.34),
+				
+
 			});
+
+	
 
 			/* *********************************************************************
 			* MAP LAYERS
@@ -157,6 +161,7 @@ var Map = ( function() {"use strict";
 				this.theMap.addLayer(mapSurfer_new);
 			}
 
+
 			//layer 2 - mapnik
 			var osmLayer = new OpenLayers.Layer.OSM();
 			this.theMap.addLayer(osmLayer);
@@ -178,9 +183,34 @@ var Map = ( function() {"use strict";
 			}
 
 
-			//layer 4 - cycle map
-			var layerCycle = new OpenLayers.Layer.OSM("OpenCycleMap", ["http://a.tile.opencyclemap.org/cycle/${z}/${x}/${y}.png", "http://b.tile.opencyclemap.org/cycle/${z}/${x}/${y}.png", "http://c.tile.opencyclemap.org/cycle/${z}/${x}/${y}.png"]);
-			this.theMap.addLayer(layerCycle);
+			//nepal layer damaged buildings
+			var tiled = new OpenLayers.Layer.WMS(
+                    "nepal:buildings_nepal_damaged - Tiled", "http://129.206.228.92:8080/geoserver/nepal/wms",
+                    {
+                        LAYERS: 'nepal:buildings_nepal_damaged',
+                        STYLES: '',
+                        format:  'image/png',
+                        tiled: true,
+                        transparent: "true",
+                        tilesOrigin : this.theMap.maxExtent.left + ',' + this.theMap.maxExtent.bottom
+                    },
+                    {
+                        buffer: 0,
+                        displayOutsideMaxExtent: true,
+                        isBaseLayer: false,
+                        yx : {'EPSG:3857' : true}
+                    } 
+                );
+            
+               
+        
+            this.theMap.addLayers([tiled]);
+
+
+
+			// //layer 4 - cycle map
+			// var layerCycle = new OpenLayers.Layer.OSM("OpenCycleMap", ["http://a.tile.opencyclemap.org/cycle/${z}/${x}/${y}.png", "http://b.tile.opencyclemap.org/cycle/${z}/${x}/${y}.png", "http://c.tile.opencyclemap.org/cycle/${z}/${x}/${y}.png"]);
+			// this.theMap.addLayer(layerCycle);
 
 			//overlay - hillshade
 			if (namespaces.layerHs.length) {
@@ -198,36 +228,36 @@ var Map = ( function() {"use strict";
 
 			//TODO too many requests sent
 			//overlay - traffic
-			if (namespaces.overlayTmcLines.length) {
-				var layerTMC_lines = new OpenLayers.Layer.WMS("Germany TMC (Streets)", namespaces.overlayTmcLines, {
-					'layers' : 'osm_tmc:lines',
-					srs : 'EPSG:31467',
-					transparent : true,
-					format : 'image/png',
-					tiled : 'true'
-				}, {
-					displayInLayerSwitcher : false,
-					visibility : false
-				});
-				this.theMap.addLayer(layerTMC_lines);
-			}
+			// if (namespaces.overlayTmcLines.length) {
+			// 	var layerTMC_lines = new OpenLayers.Layer.WMS("Germany TMC (Streets)", namespaces.overlayTmcLines, {
+			// 		'layers' : 'osm_tmc:lines',
+			// 		srs : 'EPSG:31467',
+			// 		transparent : true,
+			// 		format : 'image/png',
+			// 		tiled : 'true'
+			// 	}, {
+			// 		displayInLayerSwitcher : false,
+			// 		visibility : false
+			// 	});
+			// 	this.theMap.addLayer(layerTMC_lines);
+			// }
 
-			if (namespaces.overlayTmc.length) {
-				var layerTMC = new OpenLayers.Layer.WMS("TMC Germany", namespaces.overlayTmc, {
-					layers : 'tmc:tmcpoints',
-					styles : 'tmcPoint_All',
-					srs : 'EPSG:31467',
-					transparent : true,
-					format : 'image/png',
-					tiled : 'true'
-				}, {
-					visibility : false
-				});
-				this.theMap.addLayer(layerTMC);
-				layerTMC.events.register('visibilitychanged', 'map', function(e) {
-					layerTMC_lines.setVisibility(layerTMC.getVisibility());
-				});
-			}
+			// if (namespaces.overlayTmc.length) {
+			// 	var layerTMC = new OpenLayers.Layer.WMS("TMC Germany", namespaces.overlayTmc, {
+			// 		layers : 'tmc:tmcpoints',
+			// 		styles : 'tmcPoint_All',
+			// 		srs : 'EPSG:31467',
+			// 		transparent : true,
+			// 		format : 'image/png',
+			// 		tiled : 'true'
+			// 	}, {
+			// 		visibility : false
+			// 	});
+			// 	this.theMap.addLayer(layerTMC);
+			// 	layerTMC.events.register('visibilitychanged', 'map', function(e) {
+			// 		layerTMC_lines.setVisibility(layerTMC.getVisibility());
+			// 	});
+			// }
 
 			//layrers required for routing, etc.
 			//route points
@@ -359,6 +389,9 @@ var Map = ( function() {"use strict";
 			this.theMap.addControl(this.selectMarker);
 
 			this.selectMarker.activate();
+
+			
+
 
 			//copied from http://openlayers.org/dev/examples/select-feature-multilayer.html
 			// vectors1.events.on({
@@ -508,8 +541,13 @@ var Map = ( function() {"use strict";
 			/* *********************************************************************
 			 * MAP LOCATION
 			 * *********************************************************************/
-			var hd = util.convertPointForMap(new OpenLayers.LonLat(8.692953, 49.409445));
-			this.theMap.setCenter(hd, 13);
+			//var hd = util.convertPointForMap(new OpenLayers.LonLat(8.692953, 49.409445));
+			//this.theMap.setCenter(hd, 13);
+
+			var nepal = util.convertPointForMap(new OpenLayers.LonLat(84.10019, 28.16620));
+			this.theMap.setCenter(nepal, 7);
+
+	
 
 			/* *********************************************************************
 			 * MAP EVENTS

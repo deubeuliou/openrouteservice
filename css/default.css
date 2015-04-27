@@ -504,6 +504,11 @@ button.routeOptionsButton > img {
 	letter-spacing: 2px;
 }
 
+#navbar a.brand span {
+	color: red;
+}
+
+
 #topMenu > li > a:hover, #title:hover {
 	text-decoration: none;
 	color: #333333;

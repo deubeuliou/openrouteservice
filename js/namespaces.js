@@ -41,6 +41,7 @@ namespaces.services = {
 	//routing: 'http://openls.geog.uni-heidelberg.de/osm/routing-test',
 	directory : 'http://openls.geog.uni-heidelberg.de/testing2015/directory', //for POI search requests
 	analyse : 'http://openls.geog.uni-heidelberg.de/testing2015/analysis',
+	nepalBuildings: 'http://129.206.228.92:8080/geoserver/nepal/wms?service=WMS&version=1.1.0&request=GetMap&layers=nepal:buildings_nepal_damaged&styles=&bbox=-97.0896744,-43.5290079,172.6203699,58.0931779&width=875&height=330&srs=EPSG:4326&format=application/openlayers',
 	wps : '' //for calculation of polygon around route for POI search
 	//profile: '' 			//for height profile of route
 };
