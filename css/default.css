@@ -112,6 +112,7 @@ div.olControlScaleLine {
 	text-indent: -9999em;
 	background: url(../img/marker-small.png) no-repeat 50% 50%;
 	padding-left: 3px;
+
 }
 .useAsWaypoint {
 	display: block;
@@ -499,6 +500,8 @@ button.routeOptionsButton > img {
 }
 #navbar a.brand {
 	padding-right: 10px;
+	font-weight: bold;
+	letter-spacing: 2px;
 }
 
 #topMenu > li > a:hover, #title:hover {
