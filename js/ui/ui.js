@@ -1762,7 +1762,6 @@ var Ui = ( function(w) {'use strict';
 					//adapt image
 					var imgElement = btn.querySelector('img');
 					imgElement.setAttribute('src', list.routePreferencesImages.get(btn.id)[1]);
-
 					//set the selected entry as currently selected route option
 
 					var options = $('#' + btn.id + 'Options').get(0).querySelector('input[checked="checked"]');

@@ -90,7 +90,7 @@
 
       ZoomLimitedBBOXStrategy = OpenLayers.Class(OpenLayers.Strategy.BBOX, {
 
-          zoom_data_limit: 13,
+          zoom_data_limit: 14,
 
           initialize: function(zoom_data_limit) {
               this.zoom_data_limit = zoom_data_limit;
