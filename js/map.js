@@ -282,9 +282,53 @@ var Map = ( function() {"use strict";
                         yx : {'EPSG:3857' : false}
                     } 
                 );
-            
 
-            this.theMap.addLayers([tiled_nepal_buildings,tiled_nepal_roads]);
+            // var tiled_nepal_dlr = new OpenLayers.Layer.WMS(
+            //         "Aerial Image Kathmandu (DLR)", "http://www.zki.dlr.de/arcgis/services/zki/npl_25347_wm/ImageServer/WMSServer?request=GetCapabilities&service=WMS",
+            //         {
+            //             LAYERS: 'npl_25347_wm',
+            //             STYLES: '',
+            //             format: 'image/png',
+            //             tiled: true,
+            //             transparent: "true",
+            //             tilesOrigin : this.theMap.maxExtent.left + ',' + this.theMap.maxExtent.bottom
+            //         },
+            //         {
+            //             buffer: 0,
+            //             displayOutsideMaxExtent: true,
+            //             isBaseLayer: false,
+            //             yx : {'EPSG:3857' : false}
+            //         } 
+            //     );
+
+			var layElementsOfRisk = new OpenLayers.Layer.TMS(
+              "Elements at Risk Map",
+              "http://openmapsurfer.uni-hd.de/tiles/disaster/haiyan/elr/",
+              {
+                  type: 'png', 
+                  getURL: tms_getTileURL,
+                  displayOutsideMaxExtent: true,
+                  isBaseLayer: false,
+                  //attribution: attribOSMData 
+              }
+            );  
+
+			function tms_getTileURL(bounds) {
+	            var res = this.map.getResolution();
+	            var x = Math.round((bounds.left - this.maxExtent.left) / (res * this.tileSize.w));
+	            var y = Math.round((this.maxExtent.top - bounds.top) / (res * this.tileSize.h));
+	            var z = this.map.getZoom();
+	            var limit = Math.pow(2, z);
+	            
+	            if (y < 0 || y >= limit) {
+	                return OpenLayers.Util.getImagesLocation() + "404.png";
+	            } else {
+	                x = ((x % limit) + limit) % limit;
+	                return this.url + "x=" + x + "&y=" + y + "&z=" + z;    //+ "&ss=" + x + "-" + y + "-" + z
+	            }
+	        }
+
+            this.theMap.addLayers([tiled_nepal_buildings,tiled_nepal_roads,layElementsOfRisk]);
 
 			 this.theMap.addLayers([
               make_layer("http://overpass-api.de/api/interpreter?data=[timeout:1];node[amenity=hospital](bbox);out+skel;(way[amenity=hospital](bbox);node(w););out+skel;", "#65a4a4"),
@@ -322,18 +366,18 @@ var Map = ( function() {"use strict";
 			// this.theMap.addLayer(layerCycle);
 
 			//overlay - hillshade
-			if (namespaces.layerHs.length) {
-				var hs_options = {
-					layers : 'europe_wms:hs_srtm_europa',
-					srs : 'EPSG:900913',
-					format : 'image/jpeg',
-					transparent : 'true'
-				};
-				var hs2 = new OpenLayers.Layer.WMS("Hillshade", namespaces.layerHs, hs_options);
-				hs2.setOpacity(0.2);
-				hs2.visibility = false;
-				this.theMap.addLayer(hs2);
-			}
+			// if (namespaces.layerHs.length) {
+			// 	var hs_options = {
+			// 		layers : 'europe_wms:hs_srtm_europa',
+			// 		srs : 'EPSG:900913',
+			// 		format : 'image/jpeg',
+			// 		transparent : 'true'
+			// 	};
+			// 	var hs2 = new OpenLayers.Layer.WMS("Hillshade", namespaces.layerHs, hs_options);
+			// 	hs2.setOpacity(0.2);
+			// 	hs2.visibility = false;
+			// 	this.theMap.addLayer(hs2);
+			// }
 
 			//TODO too many requests sent
 			//overlay - traffic
@@ -479,6 +523,12 @@ var Map = ( function() {"use strict";
 				roundedCornerColor : 'black',
 				id : 'layerSwitcherPanel'
 			}));
+
+			var myLayer = this.theMap.getLayersByName('Hospitals')[0];
+			console.log(myLayer)
+			myLayer.setVisibility(false);
+
+	
 
 			this.theMap.addControl(new OpenLayers.Control.ScaleLine());
 			this.theMap.addControl(new OpenLayers.Control.MousePosition());

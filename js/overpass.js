@@ -367,7 +367,7 @@ var OSMDiffFormat = OpenLayers.Class(OpenLayers.Format.OSM, {
               strokeColor: color,
               strokeOpacity: 0.5,
               strokeWidth: 6,
-              pointRadius: 10,
+              pointRadius: 5,
               fillColor: color,
               fillOpacity: 0.25
           });
@@ -384,6 +384,7 @@ var OSMDiffFormat = OpenLayers.Class(OpenLayers.Format.OSM, {
               ratio: 1.0
           });
 
+        
           layer.events.register("featuresadded", layer, make_features_added_closure(layer));
 
           return layer;
