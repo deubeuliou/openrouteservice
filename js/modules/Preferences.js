@@ -325,10 +325,10 @@ var Preferences = ( function(w) {'use strict';
 	
 		var truckParameters = [null, null, null,null];
 
-		truckParameters[0] = document.getElementById("value_length").value;
-		truckParameters[1] = document.getElementById("value_height").value;
-		truckParameters[2] = document.getElementById("value_weight").value;
-		truckParameters[3] = document.getElementById("value_width").value;
+		truckParameters[0] = 0;
+		truckParameters[1] = 0;
+		truckParameters[2] = 0;
+		truckParameters[3] = 0;
 		
 		permaInfo[this.value_lengthIdx] = unescape(truckParameters[0]);
 		permaInfo[this.value_heightIdx] = unescape(truckParameters[1]);
