@@ -87,21 +87,29 @@ var Waypoint = (function(w) {'use strict';
 	 * @return: array of OL.LonLat representing the coordinates of the waypoint results
 	 */
 	function parseResultsToPoints(results, wpIndex) {
-		var europeBbox = new OpenLayers.Bounds(-31.303, 34.09, 50.455, 71.869);
+
+
+		//var europeBbox = new OpenLayers.Bounds(-31.303, 34.09, 50.455, 71.869);
 
 		var listOfPoints = [];
 
 		var geocodeResponseList = util.getElementsByTagNameNS(results, namespaces.xls, 'GeocodeResponseList');
 		$A(geocodeResponseList).each(function(geocodeResponse) {
 			var allAddress = $A(util.getElementsByTagNameNS(geocodeResponse, namespaces.xls, 'GeocodedAddress'));
+			
 			for (var i = 0; i < allAddress.length; i++) {
+
 				var point = util.getElementsByTagNameNS(allAddress[i], namespaces.gml, 'pos')[0];
+
 				point = (point.firstChild.nodeValue).split(" ");
+
 				point = new OpenLayers.LonLat(point[0], point[1]);
 
-				if (europeBbox.containsLonLat(point)) {
-					listOfPoints.push(point);
-				} //else {
+				listOfPoints.push(point);
+
+				//if (europeBbox.containsLonLat(point)) {
+				//	listOfPoints.push(point);
+				//} //else {
 					//listOfPoints.push(null);
 				//}
 			}

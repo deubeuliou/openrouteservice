@@ -63,7 +63,6 @@ var Controller = ( function(w) {'use strict';
 
 			//IE doesn't know responseXML, it can only provide text that has to be parsed to XML...
 			results = results.responseXML ? results.responseXML : util.parseStringToDOM(results.responseText);
-
 			//when the service gives response but contains an error the response is handeled as success, not error. We have to check for an error tag here:
 			var responseError = util.getElementsByTagNameNS(results, namespaces.xls, 'ErrorList').length;
 			if (parseInt(responseError) > 0) {
@@ -71,7 +70,7 @@ var Controller = ( function(w) {'use strict';
 				handleSearchWaypointFailure(wpIndex);
 			} else {
 				waypoint.decrRequestCounterWaypoint(wpIndex);
-
+				
 				if (waypoint.getRequestCounterWaypoint(wpIndex) == 0) {
 					var listOfPoints = waypoint.parseResultsToPoints(results, wpIndex);
 					ui.searchWaypointChangeToSearchingState(false, wpIndex);
@@ -498,7 +497,7 @@ var Controller = ( function(w) {'use strict';
 		function handleSearchAddressResults(results) {
 			//IE doesn't know responseXML, it can only provide text that has to be parsed to XML...
 			results = results.responseXML ? results.responseXML : util.parseStringToDOM(results.responseText);
-
+			console.log(results);
 			//when the service gives response but contains an error the response is handeled as success, not error. We have to check for an error tag here:
 			var responseError = util.getElementsByTagNameNS(results, namespaces.xls, 'ErrorList').length;
 			if (parseInt(responseError) > 0) {

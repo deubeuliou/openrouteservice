@@ -75,6 +75,7 @@ var SearchAddress = ( function(window) {"use strict";
 		 * @return: array of OL.LonLat representing the coordinates of the address results
 		 */
 		function parseResultsToPoints(results) {
+			console.log(results);
 			var europeBbox = new OpenLayers.Bounds(-31.303, 34.09, 50.455, 71.869);
 
 			var listOfPoints = [];
