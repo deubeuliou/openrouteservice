@@ -246,42 +246,42 @@ var Map = ( function() {"use strict";
 
 
 			//nepal layer damaged buildings
-			var tiled_nepal_buildings = new OpenLayers.Layer.WMS(
-                    "Damaged Buildings Nepal", "http://129.206.228.92:8080/geoserver/nepal/wms",
-                    {
-                        LAYERS: 'nepal:buildings_nepal_damaged',
-                        STYLES: '',
-                        format:  'image/png',
-                        tiled: true,
-                        transparent: "true",
-                        tilesOrigin : this.theMap.maxExtent.left + ',' + this.theMap.maxExtent.bottom
-                    },
-                    {
-                        buffer: 0,
-                        displayOutsideMaxExtent: true,
-                        isBaseLayer: false,
-                        yx : {'EPSG:3857' : true}
-                    } 
-                );
+			// var tiled_nepal_buildings = new OpenLayers.Layer.WMS(
+   //                  "Damaged Buildings Nepal", "http://129.206.228.92:8080/geoserver/nepal/wms",
+   //                  {
+   //                      LAYERS: 'nepal:buildings_nepal_damaged',
+   //                      STYLES: '',
+   //                      format:  'image/png',
+   //                      tiled: true,
+   //                      transparent: "true",
+   //                      tilesOrigin : this.theMap.maxExtent.left + ',' + this.theMap.maxExtent.bottom
+   //                  },
+   //                  {
+   //                      buffer: 0,
+   //                      displayOutsideMaxExtent: true,
+   //                      isBaseLayer: false,
+   //                      yx : {'EPSG:3857' : true}
+   //                  } 
+   //              );
             
-             // setup tiled layer
-             var tiled_nepal_roads = new OpenLayers.Layer.WMS(
-                    "Damaged Roads Nepal", "http://129.206.228.92:8080/geoserver/haiyan/wms",
-                    {
-                        LAYERS: 'haiyan:roads_ors_nepal_impassible',
-                        STYLES: '',
-                        format: 'image/png',
-                        tiled: true,
-                        transparent: "true",
-                        tilesOrigin : this.theMap.maxExtent.left + ',' + this.theMap.maxExtent.bottom
-                    },
-                    {
-                        buffer: 0,
-                        displayOutsideMaxExtent: true,
-                        isBaseLayer: false,
-                        yx : {'EPSG:3857' : false}
-                    } 
-                );
+   //           // setup tiled layer
+   //           var tiled_nepal_roads = new OpenLayers.Layer.WMS(
+   //                  "Damaged Roads Nepal", "http://129.206.228.92:8080/geoserver/haiyan/wms",
+   //                  {
+   //                      LAYERS: 'haiyan:roads_ors_nepal_impassible',
+   //                      STYLES: '',
+   //                      format: 'image/png',
+   //                      tiled: true,
+   //                      transparent: "true",
+   //                      tilesOrigin : this.theMap.maxExtent.left + ',' + this.theMap.maxExtent.bottom
+   //                  },
+   //                  {
+   //                      buffer: 0,
+   //                      displayOutsideMaxExtent: true,
+   //                      isBaseLayer: false,
+   //                      yx : {'EPSG:3857' : false}
+   //                  } 
+   //              );
 
             // var tiled_nepal_dlr = new OpenLayers.Layer.WMS(
             //         "Aerial Image Kathmandu (DLR)", "http://www.zki.dlr.de/arcgis/services/zki/npl_25347_wm/ImageServer/WMSServer?request=GetCapabilities&service=WMS",
@@ -301,6 +301,104 @@ var Map = ( function() {"use strict";
             //         } 
             //     );
 
+			// setup tiled layer
+            var all_damaged_nepal = new OpenLayers.Layer.WMS(
+                    "Damaged Buildings", "http://129.206.228.92:8080/geoserver/nepal/wms",
+                    {
+                        LAYERS: 'nepal:All_Damage_Nepal_May_4th_2015',
+                        STYLES: '',
+                        format: 'image/png',
+                        tiled: true,
+                        transparent: "true",
+						tilesOrigin : this.theMap.maxExtent.left + ',' + this.theMap.maxExtent.bottom
+                    },
+                    {
+                        buffer: 0,
+                        displayOutsideMaxExtent: true,
+                        isBaseLayer: false,
+                        yx : {'EPSG:3857' : false}
+                    } 
+                );
+
+
+            // setup tiled layer
+            var damaged_bridges = new OpenLayers.Layer.WMS(
+                    "Damaged Bridges", "http://129.206.228.92:8080/geoserver/nepal/wms",
+                    {
+                        LAYERS: 'nepal:Bridge_Out_Nepal_May_3rd_2015',
+                        STYLES: '',
+                        format: 'image/png',
+                        tiled: true,
+                        transparent: "true",
+						tilesOrigin : this.theMap.maxExtent.left + ',' + this.theMap.maxExtent.bottom
+                    },
+                    {
+                        buffer: 0,
+                        displayOutsideMaxExtent: true,
+                        isBaseLayer: false,
+                        yx : {'EPSG:3857' : false}
+                    } 
+                );
+
+            // setup tiled layer
+            var landslides_nepal = new OpenLayers.Layer.WMS(
+                    "Landslides", "http://129.206.228.92:8080/geoserver/nepal/wms",
+                    {
+                        LAYERS: 'nepal:Landslides_Nepal_May_4th_2015',
+                        STYLES: '',
+                        format: 'image/png',
+                        tiled: true,
+                        transparent: "true",
+						tilesOrigin : this.theMap.maxExtent.left + ',' + this.theMap.maxExtent.bottom
+                    },
+                    {
+                        buffer: 0,
+                        displayOutsideMaxExtent: true,
+                        isBaseLayer: false,
+                        yx : {'EPSG:3857' : false}
+                    } 
+            	);
+
+            var damaged_points = new OpenLayers.Layer.WMS(
+                    "All Damaged", "http://129.206.228.92:8080/geoserver/nepal/wms",
+                    {
+                        LAYERS: 'nepal:Points_All_Damage_Nepal_May_4th_2015',
+                        STYLES: '',
+                        format: 'image/png',
+                        tiled: true,
+                        transparent: "true",
+						tilesOrigin : this.theMap.maxExtent.left + ',' + this.theMap.maxExtent.bottom
+                    },
+                    {
+                        buffer: 0,
+                        displayOutsideMaxExtent: true,
+                        isBaseLayer: false,
+                        yx : {'EPSG:3857' : false}
+                    } 
+                );
+
+            //popups
+		    var myInfo = new OpenLayers.Control.WMSGetFeatureInfo({
+	            url: 'http://129.206.228.92:8080/geoserver/nepal/wms', 
+	            title: 'Identify features by clicking',
+	            queryVisible: true,
+	            eventListeners: {
+	                getfeatureinfo: function(event) {
+	                    self.theMap.addPopup(new OpenLayers.Popup.FramedCloud(
+	                        "Popup", 
+	                        self.theMap.getLonLatFromPixel(event.xy),
+	                        null,
+	                        event.text,
+	                        null,
+	                        true
+	                    ));
+	                }
+	            }
+		        });
+	        this.theMap.addControl(myInfo);
+	        myInfo.activate();
+
+
 			var layElementsOfRisk = new OpenLayers.Layer.TMS(
               "Elements at Risk Map",
               "http://openmapsurfer.uni-hd.de/tiles/disaster/haiyan/elr/",
@@ -312,6 +410,7 @@ var Map = ( function() {"use strict";
                   //attribution: attribOSMData 
               }
             );  
+
 
 			function tms_getTileURL(bounds) {
 	            var res = this.map.getResolution();
@@ -328,7 +427,7 @@ var Map = ( function() {"use strict";
 	            }
 	        }
 
-            this.theMap.addLayers([tiled_nepal_buildings,tiled_nepal_roads,layElementsOfRisk]);
+            this.theMap.addLayers([landslides_nepal, damaged_points, damaged_bridges, all_damaged_nepal,layElementsOfRisk]);
 
 			 this.theMap.addLayers([
               make_layer("http://overpass-api.de/api/interpreter?data=[timeout:1];node[amenity=hospital](bbox);out+skel;(way[amenity=hospital](bbox);node(w););out+skel;", "#65a4a4"),
@@ -342,10 +441,7 @@ var Map = ( function() {"use strict";
               make_layer("http://overpass-api.de/api/interpreter?data=[timeout:1];node[amenity=telephone](bbox);out+skel;(way[amenity=telephone]](bbox);node(w););out+skel;", "#6dc066"),
               make_layer("http://overpass-api.de/api/interpreter?data=[timeout:1];node[tourism=camp_site](bbox);out+skel;(way[tourism=camp_site]](bbox);node(w););out+skel;", "#330000"),
           	]);
-          		   
-
           		  
-
 
           	var myLayers = this.theMap.getLayersByClass("OpenLayers.Layer.Vector");
           	myLayers[1].setName('Hospitals')
@@ -357,7 +453,7 @@ var Map = ( function() {"use strict";
 			myLayers[7].setName('Fire Stations')
 			myLayers[8].setName('Rescue Stations')
 			myLayers[9].setName('Telephones') 
-			myLayers[10].setName('Camp Sites')        
+			myLayers[10].setName('Camp Sites')       
 
 
 
@@ -557,6 +653,7 @@ var Map = ( function() {"use strict";
 			    ), zoom // Initialier Zoom level
 			);
 
+
 			//copied from http://openlayers.org/dev/examples/select-feature-multilayer.html
 			// vectors1.events.on({
 			// "featureselected": function(e) {
@@ -624,6 +721,8 @@ var Map = ( function() {"use strict";
 					},
 					'click' : function(e) {
 						closeContextMenu();
+
+
 					},
 					'dblclick' : function(e) {
 						closeContextMenu();
@@ -635,6 +734,8 @@ var Map = ( function() {"use strict";
 			});
 			this.theMap.addControl(clickControl);
 			clickControl.activate();
+
+
 
 			// external code source: http://spatialnotes.blogspot.com/2010/11/capturing-right-click-events-in.html
 			// Get control of the right-click event:
