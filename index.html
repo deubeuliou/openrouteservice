@@ -24,6 +24,9 @@
 					</div>
 				</li>
 				<li>
+					<a href="#mapLegendModal" data-toggle="modal" id="menuLinkMapLegend">Map Legend</a>
+				</li>
+				<li>
 					<a href="#sitePrefsModal" data-toggle="modal" id="menuLinkSitePrefs">Site Preferences</a>
 				</li>
 				<li>
@@ -541,6 +544,52 @@
 
 		<!-- arrow to show/hide height Profile -->
 		<a class="heightProfileInvisible" id="toggleHeightProfile"><img src="img/arrowLeft.png" alt="/"></a>
+
+		<!-- popup for map legend crisis map -->
+		<div id="mapLegendModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="mapLegend">
+			<div class="modal-header">
+				<a href="#" class="close" data-dismiss="modal" aria-hidden="true">×</a><h3>Map Legend</h3>
+			</div>
+			<div class="modal-body">
+				<h4>Overpass API Legend</h4>
+				<p>
+					<img src="img/01_hospital.png" alt="/">&nbsp;&nbsp;Hospitals
+				</p>
+				<p>
+					<img src="img/02_waterpoint.png" alt="/">&nbsp;&nbsp;Waterpoints
+				</p>
+				<p>
+					<img src="img/03_drinkingwater.png" alt="/">&nbsp;&nbsp;Drinking Water
+				</p>
+				<p>
+					<img src="img/04_clinic.png" alt="/">&nbsp;&nbsp;Clinics
+				</p>
+				<p>
+					<img src="img/05_pharmacy.png" alt="/">&nbsp;&nbsp;Pharmacies
+				</p>
+				<p>
+					<img src="img/06_communitycenter.png" alt="/">&nbsp;&nbsp;Community Centers
+				</p>
+				<p>
+					<img src="img/07_firestation.png" alt="/">&nbsp;&nbsp;Firestations
+				</p>
+				<p>
+					<img src="img/08_rescuestation.png" alt="/">&nbsp;&nbsp;Rescue Stations
+				</p>
+				<p>
+					<img src="img/09_telephone.png" alt="/">&nbsp;&nbsp;Telephones
+				</p>
+				<p>
+					<img src="img/10_campsites.png" alt="/">&nbsp;&nbsp;Camp Sites
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button class="btn" data-dismiss="modal" aria-hidden="true">
+					Close
+				</button>
+			</div>
+		</div>
+		
 
 		<!-- popup for user preferences (language, distance unit,...) -->
 		<div id="sitePrefsModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sitePrefs">
