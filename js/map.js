@@ -602,13 +602,16 @@ var Map = ( function() {
 				function updateInfoPanel(results) {
 					
 					var lastUpdate = new Date(results.profiles['profile 1'].import_date);
+					var nextUpdate = new Date(results.profiles['profile 1'].prepare_date);
+					console.log(results.profiles);
 
 					// TODO: add nextUpdate from results when live
 					lastUpdate =  lastUpdate.getUTCDate() + '.' + (parseInt(lastUpdate.getMonth())+parseInt(1)) + '.' + lastUpdate.getFullYear();
+					nextUpdate = nextUpdate.getUTCDate() + '.' + (parseInt(nextUpdate.getMonth())+parseInt(1)) +'.' + nextUpdate.getFullYear();
 					document.getElementById("infoPanel").innerHTML += '<br/><br/>';
 					document.getElementById("infoPanel").innerHTML += '<b>Last Update:</b> ' + lastUpdate;
 					document.getElementById("infoPanel").innerHTML += '<br/>';
-					document.getElementById("infoPanel").innerHTML += '<b>Next Update:</b> ' + results.next_update;
+					document.getElementById("infoPanel").innerHTML += '<b>Next Update:</b> ' + nextUpdate;
 				}
 
 			}
@@ -869,7 +872,7 @@ var Map = ( function() {
 			this.theMap.events.register('moveend', this.theMap, emitMapChangedEvent);
 			this.theMap.events.register('changelayer', this.theMap, emitMapChangedEvent);
 
-			this.theMap.events.register('move', this.theMap, panMapChangedEvent);
+			//this.theMap.events.register('move', this.theMap, panMapChangedEvent);
 
 			//when zooming or moving the map -> close the context menu
 			this.theMap.events.register("zoomend", this.map, closeContextMenu);

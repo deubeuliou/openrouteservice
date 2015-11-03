@@ -428,9 +428,10 @@ var Controller = ( function(w) {'use strict';
                     wpString = wpString + routePoints[i].lon + ',' + routePoints[i].lat + ',';
                 }
             }
+            console.log(wpString);
             //slice away the last separator ','
             wpString = wpString.substring(0, wpString.length - 3);
-
+            console.log(wpString);
             handlePrefsChanged({
                 key : preferences.waypointIdx,
                 value : wpString,
