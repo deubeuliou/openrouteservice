@@ -10,7 +10,7 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 $subject = $name;
 // To send HTML mail, the Content-type header must be set.
 $headers = 'MIME-Version: 1.0' . "\r\n";
-$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+$headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
 $headers .= 'From:' . $email. "\r\n"; // Sender's Email
 $headers .= 'Cc:' . $email. "\r\n"; // Carbon copy to Sender
 $template = '<div style="padding:50px; color:white;">Hello ' . $name . ',<br/>'
