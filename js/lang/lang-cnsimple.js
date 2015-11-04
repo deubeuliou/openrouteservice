@@ -108,6 +108,11 @@ var lang_cnsimple = {
 	'avoidFerryBike' : '避开渡船' ,
 	'avoidunpavedRoadsBike' : '避开未铺砌道路',
 	'avoidStepsBike' : '步骤',
+	'avoidStepsPedestrian': '步骤',
+	
+	'avoidFords' : '渡口',
+	'avoidFordsBike' : '渡口',
+	'avoidFordsPedestrian' : '渡口',
 	
 	//Surfaces:
 	'surface': '表面',

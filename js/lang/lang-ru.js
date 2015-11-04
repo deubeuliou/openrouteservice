@@ -95,6 +95,11 @@ var lang_ru = {
 	'avoidFerryBike' : 'Избегайте паромы' ,
 	'avoidunpavedRoadsBike' : 'Избегайте грунтовые дороги',
 	'avoidStepsBike' : 'меры',
+	'avoidStepsPedestrian' : 'меры',
+	
+	'avoidFords' : 'броды',
+	'avoidFordsBike' : 'броды',
+	'avoidFordsPedestrian' : 'броды',
 	
 	'TruckLength' : 'максимальная длина',
 	'TruckHeight' : 'максимальная высота',

@@ -90,6 +90,11 @@ var lang_fr = {
 	'avoidFerryBike' : 'Eviter les liaisons maritimes' ,
 	'avoidunpavedRoadsBike' : 'Eviter les routes non rev&ecirc;tues',
 	'avoidStepsBike' : 'Eviter les &eacute;tapes',
+	'avoidStepsPedestrian' : 'Eviter les &eacute;tapes',
+	
+	'avoidFords' : 'gu&eacute;s',
+	'avoidFordsBike' : 'gu&eacute;s',
+	'avoidFordsPedestrian' : 'gu&eacute;s',
 	
 	'TruckLength' : 'longueur maximale',
 	'TruckHeight' : 'hauteur maximale',

@@ -91,6 +91,11 @@ var lang_es = {
 	'avoidFerryBike' : 'Evitar las conexiones mar&iacute;timas' ,
 	'avoidunpavedRoadsBike' : 'Evitar carreteras sin pavimentar',
 	'avoidStepsBike' : 'Evitar pasos',
+	'avoidStepsPedestrian' : 'Evitar pasos',
+	
+	'avoidFords' : 'vados',
+	'avoidFordsBike' : 'vados',
+	'avoidFordsPedestrian' : 'vados',
 	
 	'TruckLength' : 'longitud m&aacute;xima',
 	'TruckHeight' : 'altura m&aacute;xima',

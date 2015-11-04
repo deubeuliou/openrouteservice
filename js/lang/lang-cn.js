@@ -108,6 +108,11 @@ var lang_cn = {
 	'avoidFerryBike' : '避開渡船' ,
 	'avoidunpavedRoadsBike' : '避開未鋪砌道路',
 	'avoidStepsBike' : '步驟',
+	'avoidStepsPedestrian': '步驟',
+	
+	'avoidFords' : '渡口',
+	'avoidFordsBike' : '渡口',
+	'avoidFordsPedestrian' : '渡口',
 	
 	//Surfaces:
 	'surface': '路面品質',

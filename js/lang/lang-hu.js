@@ -91,6 +91,11 @@ var lang_hu = {
 	'avoidFerryBike' : 'Ker&uuml;lje a kompj&aacute;rat' ,
 	'avoidunpavedRoadsBike' : 'Ker&uuml;lje a f&ouml;ldutakat',
 	'avoidStepsBike' : 'Elker&uuml;l&eacute;se l&eacute;p&eacute;sek',
+	'avoidStepsPedestrian' : 'Elker&uuml;l&eacute;se l&eacute;p&eacute;sek',
+	
+	'avoidFords' : 'g&aacute;zl&oacute;k',
+	'avoidFordsBike' : 'g&aacute;zl&oacute;k',
+	'avoidFordsPedestrian' : 'g&aacute;zl&oacute;k',
 	
 	'TruckLength' : 'maxim&aacute;lis hossza',
 	'TruckHeight' : 'maxim&aacute;lis magass&aacute;g',

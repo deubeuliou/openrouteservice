@@ -94,6 +94,11 @@ var lang_en = {
     'avoidFerryBike': 'ferry connections',
     'avoidunpavedRoadsBike': 'unpaved roads',
     'avoidStepsBike': 'steps',
+	'avoidStepsPedestrian': 'steps',
+	'avoidFords' : 'fords',
+	'avoidFordsBike' : 'fords',
+	'avoidFordsPedestrian' : 'fords',
+	
     //Surfaces:
     'surface': 'Surface',
     'asphalt': 'concrete, asphalt',

@@ -107,6 +107,10 @@ var lang_de = {
 		'avoidFerryBike' : 'F&aumlhrverbindungen vermeiden' ,
 		'avoidunpavedRoadsBike' : 'Unbefestigte Straßen vermeiden',
 		'avoidStepsBike' : 'Stufen/Treppen vermeiden',
+		'avoidStepsPedestrian': 'Stufen/Treppen vermeiden',
+		'avoidFords' : 'Furten',
+		'avoidFordsBike' : 'Furten',
+		'avoidFordsPedestrian' : 'Furten',
 		
 	//Surfaces:
 		'surface': 'Oberfläche',

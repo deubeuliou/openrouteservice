@@ -57,8 +57,12 @@ var Languages = (function(w) {'use strict';
 		$('#avoidFerryLabelBike').html(p.translate('avoidFerryBike'));
 		$('#avoidunpavedRoadsLabelBike').html(p.translate('avoidunpavedRoadsBike'));
 		$('#avoidStepsLabelBike').html(p.translate('avoidStepsBike'));
+		$('#avoidStepsLabelPedestrian').html(p.translate('avoidStepsBike'));
 		$('#avoidFerryLabelPedestrian').html(p.translate('avoidFerryPedes'));
-		
+		$('#avoidFordsLabel').html(p.translate('avoidFords'));
+		$('#avoidFordsLabelBike').html(p.translate('avoidFordsBike'));
+		$('#avoidFordsLabelPedestrian').html(p.translate('avoidFordsPedestrian'));
+
 		
 		$('#avoidRoadsBtn').html(p.translate('avoidRoadMain'));
 		$('#avoidAreasBtn').html(p.translate('avoidAreasMain'));

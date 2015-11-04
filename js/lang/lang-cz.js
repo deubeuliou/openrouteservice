@@ -91,6 +91,10 @@ var lang_cz = {
 	'avoidFerryBike' : 'Vyhnete trajektov&eacute;ho spojen&iacute;' ,
 	'avoidunpavedRoadsBike' : 'Vyhnete se nezpevnen&yacute;ch cest&aacute;ch',
 	'avoidStepsBike' : 'Vyhnete kroky',
+	'avoidStepsPedestrian' : 'Vyhnete kroky',
+	'avoidFords' : 'brody',
+	'avoidFordsBike' : 'brody',
+	'avoidFordsPedestrian' : 'brody',
 	
 	'TruckLength' : 'maxim&aacute;ln&iacute;d&eacute;lka',
 	'TruckHeight' : 'maxim&aacute;ln&iacute;v&yacute;ska',

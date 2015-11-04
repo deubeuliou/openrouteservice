@@ -84,6 +84,11 @@ var lang_it = {
 	'avoidFerryBike' : 'Evitare i collegamenti marittimi' ,
 	'avoidunpavedRoadsBike' : 'Evita strade non asfaltate',
 	'avoidStepsBike' : 'Evitare passi',
+	'avoidStepsPedestrian' : 'Evitare passi',
+	
+	'avoidFords' : 'guadi',
+	'avoidFordsBike' : 'guadi',
+	'avoidFordsPedestrian' : 'guadi',
 	
 	'TruckLength' : 'lunghezza massima',
 	'TruckHeight' : 'altezza massima',
