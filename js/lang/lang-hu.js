@@ -68,6 +68,7 @@ var lang_hu = {
 	'Car' : 'aut&oacute;',
     'Shortest':'legr&ouml;videbb &uacute;t',
     'Fastest':'leggyorsabb &uacute;tvonal',
+	'Recommended': 'aj&aacute;nlott &uacute;tvonalat',
     'Pedestrian':'gyalogos',
     'Bicycle':'legr&ouml;videbb &uacute;t',
     'BicycleSafety':'legbiztons&aacute;gosabb &uacute;t',

@@ -27,6 +27,7 @@ var Languages = (function(w) {'use strict';
 		$('#carLabel').html(p.translate('Car'));
 		$('#fastestLabel').html(p.translate('Fastest'));
 		$('#shortestLabel').html(p.translate('Shortest'));
+		$('#recommendedLabel').html(p.translate('Recommended'));
 		$('#BicycleLabel').html(p.translate('Bicycle'));
 		$('#BicycleSafetyLabel').html(p.translate('BicycleSafety'));
 		$('#BicycleRouteLabel').html(p.translate('BicycleRoute'));

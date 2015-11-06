@@ -72,6 +72,7 @@ var lang_de = {
 		'Car' : 'Auto',
 		'Shortest':  'K&uuml;rzester Weg',
 		'Fastest':  'Schnellster Weg',
+		'Recommended': 'Bevorzugter Weg',
 		'Pedestrian':  'Fußg&auml;nger',
 		'Wheelchair':  'Barrierefrei',
 		'Bicycle':  'Normal',

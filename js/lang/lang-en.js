@@ -61,6 +61,7 @@ var lang_en = {
     'Car': 'Car',
     'Shortest': 'shortest route',
     'Fastest': 'fastest route',
+	'Recommended': 'recommended route',
     'Pedestrian': 'Pedestrian',
     'Wheelchair': 'Accessible route',
     'Bicycle': 'Normal',

@@ -72,6 +72,7 @@ var lang_pl = {
 	'Car': 'Samoch&oacute;d',
 	'Shortest' : 'najkr&oacute;tsza trasa',
 	'Fastest' : 'najszybsza trasa',
+	'Recommended': 'zalecana trasa',
 	'Pedestrian' : 'pieszo',
 	'Bicycle' : 'najkr&oacute;tsza trasa',
 	'BicycleSafety' : 'trasa bezpieczna',

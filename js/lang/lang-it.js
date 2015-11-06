@@ -61,6 +61,7 @@ var lang_it = {
 	'Car' : 'auto',
     'Shortest':'percorso pi&ugrave; breve',
     'Fastest':'percorso pi&ugrave; veloce',
+	'Recommended': 'percorso consigliato',
     'Pedestrian':'pedonale',
     'Bicycle':'percorso pi&ugrave; breve',
     'BicycleSafety':'via pi&ugrave; sicura',

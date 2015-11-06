@@ -68,6 +68,7 @@ var lang_cz = {
 	'Car' : 'Auto',
     'Shortest':'nejkrats&iacute;trasa',
     'Fastest':'Nejrychlejs&iacute;cesta',
+	'Recommended': 'Doporu&#269;en&aacute; trasa',
     'Pedestrian':'chodec',
     'Bicycle':'nejkrats&iacute;trasa',
     'BicycleSafety':'Nejbezpecnejs&iacute;cesta',

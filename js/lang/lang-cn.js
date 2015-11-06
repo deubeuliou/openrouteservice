@@ -72,6 +72,7 @@ var lang_cn = {
 	'Car' : '汽車',
 	'Shortest' : '最短路徑',
 	'Fastest' : '最快路徑',
+	'Recommended': '推薦路線',
 	'Pedestrian' : '步行模式',
 	'Wheelchair' : '輪椅',
 	'Bicycle' : '自行車',

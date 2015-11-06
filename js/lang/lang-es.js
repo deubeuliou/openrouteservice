@@ -68,6 +68,7 @@ var lang_es = {
 	'Car' : 'Coche',
     'Shortest':'ruta m&aacute;s corta',
     'Fastest':'ruta m&aacute;s r&aacute;pida',
+	'Fastest':'ruta recomendada',
     'Pedestrian':'peatones',
     'Bicycle':'ruta m&aacute;s corta',
     'BicycleSafety':'ruta m&aacute;s segura',

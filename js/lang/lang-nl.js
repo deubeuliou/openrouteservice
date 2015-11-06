@@ -68,6 +68,7 @@ var lang_nl = {
 	'Car' : 'auto',
     'Shortest':'kortste route',
     'Fastest':'snelste route',
+	'Recommended': 'aanbevolen route',
     'Pedestrian':'voetganger',
     'Bicycle':'kortste route',
     'BicycleSafety':'veiligste route',

@@ -67,6 +67,7 @@ var lang_fr = {
 	'Car':'voiture',
     'Shortest':'itin&eacute;raire le plus court',
     'Fastest':'itin&eacute;raire le plus rapide',
+	'Recommended': 'itin&eacute;raire recommand&eacute;',
     'Pedestrian':'pi&eacute;ton',
     'Bicycle':'itin&eacute;raire le plus court',
     'BicycleSafety':'itin&eacute;raire le plus sûr',
