@@ -1,0 +1,30 @@
+{
+  "name": "openrouteservice",
+  "description": "OpenRouteService Angular 2 Version",
+  "main": "index.html",
+  "authors": [
+    "Timothy Ellersiek"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "ors",
+    "routing",
+    "service",
+    "openstreetmap"
+  ],
+  "homepage": "https://github.com/GIScience/openrouteservice",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.3",
+    "leaflet": "^0.7.7",
+    "angular-leaflet-directive": "angular-leaflet#^0.10.0"
+  }
+}
